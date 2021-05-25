@@ -1,22 +1,22 @@
 package com.example.demo;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @Entity
 @Table(name="books")
 public class Book {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column
+
+	@Column(name="book_name")
 	private String book_name;
-	@Column
+
+	@Column(name="author_name")
 	private String author_name;
-	@Column
+
+	@Column(name="isbn")
 	private String isbn;
 	
 	public Book()
@@ -26,8 +26,8 @@ public class Book {
 	public Book(Long id, String book_name, String author_name, String isbn)
 	{
 		this.id=id;
-		this.book_name=book_name;
-		this.author_name=author_name;
+		this.book_name = book_name;
+		this.author_name = author_name;
 		this.isbn=isbn;
 	}
 
